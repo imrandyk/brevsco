@@ -54,8 +54,8 @@ export default () => {
     <LetterWrapper>
       <h1>Join our News letter!</h1>
       <Form name="newsletter" method="POST" netlify>
-        <input type="email" placeholder="Enter your email" />
-        <Button text="Subscribe" icon="paper-plane" size="1" />
+        <input type="email" name="email" placeholder="Enter your email" />
+        <Button type="submit" text="Subscribe" icon="paper-plane" size="1" />
       </Form>
     </LetterWrapper>
   )

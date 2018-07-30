@@ -34,11 +34,11 @@ const Button = styled.button`
   }
 `
 
-export default ({ text, icon }) => {
-  if (!icon) return <Button>{text}</Button>
+export default ({ text, icon, type }) => {
+  if (!icon) return <Button type={type}>{text}</Button>
   else
     return (
-      <Button>
+      <Button type={type}>
         <Icon icon={icon} /> {text}
       </Button>
     )
