@@ -105,10 +105,7 @@ class navigation extends Component {
     const { location } = this.props
 
     const isHome = location.pathname === '/'
-    let bg = 'transparent'
-    let navHeight = Theme.Sizes.NavigationHeight
 
-    console.log({ isHome })
     return (
       <Container
         ref={container => (this.container = ReactDOM.findDOMNode(container))}
