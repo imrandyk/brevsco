@@ -4,11 +4,9 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 import HeroImage from '../components/heroImage'
-import NewsLetterForm from '../components/newsLetterForm'
 
 import * as Theme from '../components/theme'
 
-const HomeWrapper = styled.div``
 const Section = styled.div`
   display: grid;
   grid-column-gap: 40px;
@@ -18,11 +16,14 @@ const Section = styled.div`
   width: ${Theme.ContentWidth};
 `
 
-export default ({ data, location }) => {
+export default ({ data }) => {
   return (
-    <HomeWrapper>
+    <div>
       <Helmet title="About" />
-      <HeroImage imageSharp={data.headerImage} />
+      <HeroImage
+        imageSharp={data.headerImage}
+        padding={Theme.Sizes.NavigationHeight.Narrow}
+      />
       <Section>
         <Img
           style={{
@@ -44,7 +45,7 @@ export default ({ data, location }) => {
           </p>
         </div>
       </Section>
-    </HomeWrapper>
+    </div>
   )
 }
 

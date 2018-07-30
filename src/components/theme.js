@@ -6,7 +6,14 @@ export const White = '#ffffff'
 export const Black = '#000000'
 
 export const Sizes = {
-  NavigationHeight: '125px',
+  NavigationHeight: {
+    Normal: '125px',
+    Narrow: '75px',
+  },
+  LogoHeight: {
+    Normal: '100px',
+    Narrow: '50px',
+  },
 }
 
 export const HeaderHeight = '40vh'

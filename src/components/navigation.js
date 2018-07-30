@@ -27,6 +27,10 @@ const NavWrapper = styled.div`
   height: ${Theme.Sizes.NavigationHeight};
   transition: ${Theme.Transition};
 
+  img {
+    transition: ${Theme.Transition};
+  }
+
   .page {
     align-items: center;
     color: ${Theme.White};
@@ -79,39 +83,53 @@ class navigation extends Component {
 
   handleScroll = () => {
     const { location } = this.props
-    if (location.pathname === '/') {
-      let bg = 'transparent'
-      let navHeight = Theme.Sizes.NavigationHeight
-      let logoHeight = '100px'
-      if (
-        window.pageYOffset > Theme.Sizes.NavigationHeight.replace(/\D/g, '')
-      ) {
-        bg = Theme.Primary
-        navHeight = '75px'
-        logoHeight = '50px'
-      }
-      console.log({ bg })
-      this.container.style.backgroundColor = bg
-      this.wrapper.style.height = navHeight
-      this.logo.style.height = logoHeight
-    }
+
+    if (location.pathname !== '/') return
+
+    const target =
+      window.pageYOffset >
+      Theme.Sizes.NavigationHeight.Normal.replace(/\D/g, '')
+
+    this.container.style.backgroundColor = target
+      ? Theme.Primary
+      : 'transparent'
+    this.wrapper.style.height = target
+      ? Theme.Sizes.NavigationHeight.Narrow
+      : Theme.Sizes.NavigationHeight.Normal
+    this.logo.style.height = target
+      ? Theme.Sizes.LogoHeight.Narrow
+      : Theme.Sizes.LogoHeight.Normal
   }
 
   render() {
     const { location } = this.props
-    const bg = location.pathname === '/' ? 'transparent' : Theme.Primary
+
+    const isHome = location.pathname === '/'
+    let bg = 'transparent'
+    let navHeight = Theme.Sizes.NavigationHeight
+
+    console.log({ isHome })
     return (
       <Container
-        style={{ backgroundColor: bg }}
         ref={container => (this.container = ReactDOM.findDOMNode(container))}
+        style={{ backgroundColor: isHome ? 'transparent' : Theme.Primary }}
       >
         <NavWrapper
           ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
+          style={{
+            height: isHome
+              ? Theme.Sizes.NavigationHeight.Normal
+              : Theme.Sizes.NavigationHeight.Narrow,
+          }}
         >
           <Link className="page page-1" to="/">
             <img
               src={logoWhite}
-              style={{ height: '100px' }}
+              style={{
+                height: isHome
+                  ? Theme.Sizes.LogoHeight.Normal
+                  : Theme.Sizes.LogoHeight.Narrow,
+              }}
               ref={logo => (this.logo = ReactDOM.findDOMNode(logo))}
             />
           </Link>
