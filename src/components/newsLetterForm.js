@@ -53,7 +53,14 @@ export default () => {
   return (
     <LetterWrapper>
       <h1>Join our News letter!</h1>
-      <Form name="newsletter" method="POST" netlify>
+      <Form
+        name="newsletter"
+        method="post"
+        action="#"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="bot-field" />
         <input type="email" name="email" placeholder="Enter your email" />
         <Button type="submit" text="Subscribe" icon="paper-plane" size="1" />
       </Form>
