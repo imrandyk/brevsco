@@ -20,10 +20,7 @@ export default ({ data }) => {
   return (
     <div>
       <Helmet title="About" />
-      <HeroImage
-        imageSharp={data.headerImage}
-        padding={Theme.Sizes.NavigationHeight.Narrow}
-      />
+      <HeroImage imageSharp={data.headerImage} />
       <Section>
         <Img
           style={{

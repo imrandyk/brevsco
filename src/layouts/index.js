@@ -6,17 +6,23 @@ import styled from 'styled-components'
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 
+import * as Theme from '../components/theme'
+
 import './normalize.css'
 import './site.css'
 
-const Wraper = styled.div`
+const Wrapper = styled.div`
+  height: 100%;
+`
+
+const Inner = styled.div`
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
   min-height: 100%;
 `
 
 const Layout = ({ children, data, location }) => (
-  <Wraper>
+  <Wrapper>
     <Helmet
       titleTemplate={`%s | ${data.site.siteMetadata.title}`}
       defaultTitle={data.site.siteMetadata.title}
@@ -28,9 +34,16 @@ const Layout = ({ children, data, location }) => (
       ]}
     />
     <Navigation location={location} />
-    {children()}
-    <Footer />
-  </Wraper>
+    <Inner
+      style={{
+        paddingTop:
+          location !== '/' ? Theme.Sizes.NavigationHeight.Narrow : '0',
+      }}
+    >
+      {children()}
+      <Footer />
+    </Inner>
+  </Wrapper>
 )
 
 Layout.propTypes = {

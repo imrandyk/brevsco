@@ -54,6 +54,7 @@ export default () => {
     <LetterWrapper>
       <h1>Join our News letter!</h1>
       <Form
+        action="/success"
         name="newsletter"
         method="post"
         data-netlify="true"
