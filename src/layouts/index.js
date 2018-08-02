@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -21,30 +21,38 @@ const Inner = styled.div`
   min-height: 100%;
 `
 
-const Layout = ({ children, data, location }) => (
-  <Wrapper>
-    <Helmet
-      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-      defaultTitle={data.site.siteMetadata.title}
-      meta={[
-        {
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1, shrink-to-fit=no',
-        },
-      ]}
-    />
-    <Navigation location={location} />
-    <Inner
-      style={{
-        paddingTop:
-          location !== '/' ? Theme.Sizes.NavigationHeight.Narrow : '0',
-      }}
-    >
-      {children()}
-      <Footer />
-    </Inner>
-  </Wrapper>
-)
+class Layout extends Component {
+  render() {
+    const { children, data, location } = this.props
+    console.log({ location })
+    return (
+      <Wrapper>
+        <Helmet
+          titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+          defaultTitle={data.site.siteMetadata.title}
+          meta={[
+            {
+              name: 'viewport',
+              content: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+            },
+          ]}
+        />
+        <Navigation location={location} />
+        <Inner
+          style={{
+            paddingTop:
+              location.pathname === '/'
+                ? '0'
+                : Theme.Sizes.NavigationHeight.Narrow,
+          }}
+        >
+          {children()}
+          <Footer />
+        </Inner>
+      </Wrapper>
+    )
+  }
+}
 
 Layout.propTypes = {
   children: PropTypes.func,
