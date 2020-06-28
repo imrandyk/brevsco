@@ -6,7 +6,7 @@ import * as Theme from './theme'
 import SocialIcon from './socialIcon'
 
 const FooterWrapper = styled.div`
-    background-color: ${Theme.Primary}
+    background-color: ${Theme.Colors.Primary.Base};
     height: 125px;
 
     .inner {

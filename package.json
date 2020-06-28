@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Randy and Hannah Keyes <randyandhannahkeyes@gmail.com>",
   "dependencies": {
+    "color": "^3.0.0",
     "gatsby": "^1.9.247",
     "gatsby-image": "^1.0.55",
     "gatsby-link": "^1.6.40",

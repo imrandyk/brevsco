@@ -11,7 +11,7 @@ export default ({ icon, link, color }) => {
     margin-right: 0.375rem;
 
     a {
-      color: ${Theme.Black};
+      color: ${Theme.Colors.Grey.Black};
       transition: ${Theme.Transition};
 
       &:hover {

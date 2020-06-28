@@ -237,7 +237,7 @@ legend {
   display: table; /* 1 */
   max-width: 100%; /* 1 */
   padding: 0; /* 3 */
-  white-space: normal; /* 1 */
+  Colors.White-space: normal; /* 1 */
 }
 
 /**

@@ -29,15 +29,15 @@ const LetterWrapper = styled.div`
     position: relative;
 
     &:hover {
-      border-color: ${Theme.PrimaryDarker};
+      border-color: ${Theme.Colors.Primary.Dark};
     }
 
     &:active {
-      border-color: ${Theme.Primary};
+      border-color: ${Theme.Colors.Primary.Base};
     }
 
     &:focus {
-      box-shadow: 0 0 0 0.125em ${Theme.Primary};
+      box-shadow: 0 0 0 0.125em ${Theme.Colors.Primary.Base};
     }
   }
 `

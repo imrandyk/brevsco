@@ -1,9 +1,33 @@
-export const Primary = '#fed845'
-export const PrimaryLighter = '#ffde5c'
-export const PrimaryDarker = '#d9b836'
+import Color from 'color'
 
-export const White = '#ffffff'
-export const Black = '#000000'
+const _getVariants = c => {
+  const col = Color(c)
+  return {
+    Lightest: col.lighten(0.416).toString(),
+    Lighter: col.lighten(0.285).toString(),
+    Light: col.lighten(0.094).toString(),
+    Base: col.hsl().toString(),
+    Dark: col.darken(0.086).toString(),
+    Darker: col.darken(0.298).toString(),
+    Darkest: col.darken(0.398).toString(),
+  }
+}
+
+const colors = {
+  Primary: '#fed845',
+  Success: '#38C172',
+  Grey: '#B8C2CC',
+}
+
+export const Colors = {
+  Primary: { ..._getVariants(colors.Primary) },
+  Success: { ..._getVariants(colors.Success) },
+  Grey: {
+    White: '#ffffff',
+    ..._getVariants(colors.Grey),
+    Black: '#000000',
+  },
+}
 
 export const Sizes = {
   NavigationHeight: {

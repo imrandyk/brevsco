@@ -24,7 +24,6 @@ const Inner = styled.div`
 class Layout extends Component {
   render() {
     const { children, data, location } = this.props
-    console.log({ location })
     return (
       <Wrapper>
         <Helmet

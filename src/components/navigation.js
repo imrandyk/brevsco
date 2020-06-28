@@ -33,7 +33,7 @@ const NavWrapper = styled.div`
 
   .page {
     align-items: center;
-    color: ${Theme.White};
+    color: ${Theme.Colors.Grey.White};
     display: grid;
     justify-content: center;
     text-decoration: none;
@@ -44,7 +44,7 @@ const NavWrapper = styled.div`
   }
 
   & :hover {
-    color: ${Theme.Black};
+    color: ${Theme.Colors.Grey.Black};
   }
 
   .page-1 {
@@ -91,7 +91,7 @@ class navigation extends Component {
       Theme.Sizes.NavigationHeight.Normal.replace(/\D/g, '')
 
     this.container.style.backgroundColor = target
-      ? Theme.Primary
+      ? Theme.Colors.Primary.Base
       : 'transparent'
     this.wrapper.style.height = target
       ? Theme.Sizes.NavigationHeight.Narrow
@@ -109,7 +109,9 @@ class navigation extends Component {
     return (
       <Container
         ref={container => (this.container = ReactDOM.findDOMNode(container))}
-        style={{ backgroundColor: isHome ? 'transparent' : Theme.Primary }}
+        style={{
+          backgroundColor: isHome ? 'transparent' : Theme.Colors.Primary.Base,
+        }}
       >
         <NavWrapper
           ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
@@ -136,7 +138,7 @@ class navigation extends Component {
           <Link className="page page-3" to="/about">
             About
           </Link>
-          <Link className="page page-4" to="/">
+          <Link className="page page-4" to="/hire-us">
             Hire Us
           </Link>
           <Link className="page page-5" to="/">

@@ -5,8 +5,8 @@ import '../layouts/fontawesome/css/light.min.css'
 
 class icon extends Component {
   render() {
-    const { icon, size } = this.props
-    return <i className={`fal fa-fw fa-${icon} fa-${size}x`} />
+    const { icon, size, extraClassList } = this.props
+    return <i className={`fal fa-fw ${(icon !== undefined ? 'fa-'+icon : '')} ${(size !== undefined ? 'fa-'+size+'x' : '')} ${(extraClassList !== undefined ? extraClassList : '')}`} />
   }
 }
 

@@ -16,7 +16,7 @@ const HeroImageWrapper = styled.div`
     min-height: 100%;
 
     h1 {
-      color: ${Theme.White};
+      color: ${Theme.Colors.Grey.White};
       position: relative;
       text-align: center;
       align-self: center;
@@ -30,7 +30,7 @@ export default ({ imageSharp, headerText, headerHeight, padding }) => {
   let hero = (
     <HeroImageWrapper>
       <div className="text">
-        <h1 style={{ color: Theme.Black }}>{headerText}</h1>
+        <h1 style={{ color: Theme.Colors.Grey.Black }}>{headerText}</h1>
       </div>
     </HeroImageWrapper>
   )
